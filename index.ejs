@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <title><%=title%></title> 
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="menu">
+      <div class="menu-items ib" id="File">File</div>
+      <div class="menu-items ib" id="Home">Home</div>
+
+    </div> 
+    <div class="menu-options">
+      <div id="File-options" class="menu-options-item">
+        <div id="New" class="ib">New</div>
+        <div id="Open" class="ib">Open</div>
+        <div id="Save" class="ib">Save</div>
+      </div>
+    <div id="Home-options" class="menu-options-item">Home Options</div>
+    </div>
+    <div class="formula-bar">
+        formula bar
+        <input id="address-container" type="text">
+        <input type="text">
+    </div>
+    <div class="cell-container">
+       <div id="top-left-cell" class="top-left-cell"></div>
+       <div class="top-row" id="top-row">
+         <%for(let j=0;j<cols;j++){%>
+          <div class="cell">
+            <%=String.fromCharCode(65+j)%>
+          </div>
+          <%}%>
+       </div>
+       <div id="left-col" class="left-col">
+        <%for(let i=1;i<=rows;i++){%>
+          <div class="cell">
+            <%=i%>
+          </div>
+          <%}%>
+       </div>
+      <div class="grid" id="grid">
+        <%for(let i=1;i<=rows;i++){%>
+          <div class="row">
+            <%for(let j=0;j<cols;j++){%>
+              <div class="cell" contenteditable="true" ri=<%=i%> ci=<%=j%>>
+              
+             </div>
+             <%}%>
+          </div>
+          <%}%>
+      </div>
+      
+    </div>
+    <div class="sheets">Sheets</div>
+    <script src="index.js"></script>
+  </body>
+</html>
